@@ -1,0 +1,9 @@
+t.py
+root@95f0309b646b:~/alx-higher_level_programming/0x05-python-exceptions# pycodestyle 0-safe_print_list.py
+0-safe_print_list.py:8:9: E722 do not use bare 'except'
+
+
+
+
+
+
