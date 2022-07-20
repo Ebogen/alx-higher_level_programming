@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""defines a node of a singly linked list"""
+
+""" singly linked list """
 
 
-class Node:
-    """ initialize the Node  object """
+class Node():
+    """
+    This class defines a node of a singly linked list.
+    """
 
     def __init__(self, data, next_node=None):
         self.data = data
@@ -11,44 +14,80 @@ class Node:
 
     @property
     def data(self):
+        """
+        This method is used to retrive the value of attribute data.
+        """
         return self.__data
 
     @data.setter
     def data(self, value):
-        if not isinstance(value, int):
+        """
+        This method sets the value of the attribute data.
+        """
+        if isinstance(value, int):
+            self.__data = value
+        else:
             raise TypeError("data must be an integer")
-        self.__data = value
 
     @property
     def next_node(self):
+        """
+        This method is used to retrive the value of attribute next_node.
+        """
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        if not isinstance(value, Node) and value is not None:
+        """
+        This method is used to set the value of the attribute next_node.
+        """
+        if isinstance(value, Node) or value is None:
+            self.__next_node = value
+        else:
             raise TypeError("next_node must be a Node object")
-        self.__next_node = value
 
 
-"""class that defines a singly linked list"""
+class SinglyLinkedList():
+    """
+    This class defines a singly linked list
+    """
 
-
-class SinglyLinkedList:
-    """initialize a private instatnce attribute"""
     def __init__(self):
         self.__head = None
 
     def sorted_insert(self, value):
-        ptr = self.__head
+        """
+        Inserts a new node to the singly linked list.
+        """
+        new_node = Node(value)
 
-        while ptr is not None:
-            if ptr.data > value:
-                break
-            ptr_prev = ptr
-            ptr = ptr.next_node
+        if self.__head is None:
+            new_node.next_node = None
+            self.__head = new_node
 
-        newNode = Node(value, ptr)
-        if ptr == self.__head:
-            self.__head = newNode
+        elif self.__head.data > value:
+            new_node.next_node = self.__head
+            self.__head = new_node
+
         else:
-            ptr_prev.next_node = newNode
+            traverse = self.__head
+            while (traverse.next_node is not None and
+                    traverse.next_node.data < value):
+                traverse = traverse.next_node
+
+            new_node.next_node = traverse.next_node
+            traverse.next_node = new_node
+
+    def __repr__(self):
+        """
+        The print representation of the singly linked list with magic
+        method __repr__.
+        """
+        traverse = self.__head
+        numbers = []
+
+        while traverse is not None:
+            numbers.append(str(traverse.data))
+            traverse = traverse.next_node
+
+        return ('\n'.join(numbers))
