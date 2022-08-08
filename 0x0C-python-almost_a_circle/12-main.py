@@ -1,0 +1,3 @@
+git add .
+git commit -m '0x0C-python-almost_a_circle'
+git push
