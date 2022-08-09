@@ -6,6 +6,9 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """
+    Square implements rectangle
+    """
 
     def __init__(self, size, x=0, y=0, id=None):
         """Here we initialize the instance """

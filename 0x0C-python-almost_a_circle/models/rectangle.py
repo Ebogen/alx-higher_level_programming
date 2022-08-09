@@ -7,6 +7,11 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """
+    class Rectangle implements Base.
+    Mehtods():
+    __init__()
+    """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         self.width = width
@@ -95,7 +100,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Here we use the update method"""
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             list_atr = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                 setattr(self, list_atr[i], args[i])
