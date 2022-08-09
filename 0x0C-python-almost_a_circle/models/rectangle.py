@@ -99,7 +99,13 @@ class Rectangle(Base):
         return str_rectangle + str_id + str_xy + str_wh
 
     def update(self, *args, **kwargs):
-        """Here we use the update method"""
+        """
+        Here we assign key/value argument to attributes
+        Kwargs is skipped if args is not empty
+        Args:
+            *args - variable number of no-keyword args
+            **kwargs - variable number of keyworded args
+        """
         if args is not None and len(args) != 0:
             list_atr = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
