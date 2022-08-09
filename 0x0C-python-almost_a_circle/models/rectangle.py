@@ -23,7 +23,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Here we set the width setter"""
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -37,7 +37,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """here we set the height setter"""
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -51,7 +51,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """we set the x setter"""
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -65,7 +65,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """the y setter"""
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -73,7 +73,7 @@ class Rectangle(Base):
 
     def area(self):
         """Here we return the area of the rectangle object"""
-        return self.width * self.height
+        return (self.width * self.height)
 
     def display(self):
         """we display a rectangle"""
@@ -95,7 +95,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Here we use the update method"""
-        if args is not None and len(args) != 0:
+        if args != None and len(args) != 0:
             list_atr = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                 setattr(self, list_atr[i], args[i])
