@@ -106,6 +106,7 @@ class Rectangle(Base):
             *args - variable number of no-keyword args
             **kwargs - variable number of keyworded args
         """
+
         if args is not None and len(args) != 0:
             list_atr = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
